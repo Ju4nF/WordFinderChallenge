@@ -23,8 +23,6 @@
             }
             else
             {
-                //_characterMatrix = new char[0,0];
-                //Console.WriteLine("Matrix can not be null, its size can not exceed 64x64 and all strings have to contain the same number of characters.");
                 throw new ArgumentException("Matrix can not be null, its size can not exceed 64x64 and all strings have to contain the same number of characters.");
             }
         }
