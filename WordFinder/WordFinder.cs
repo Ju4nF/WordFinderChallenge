@@ -43,7 +43,7 @@
 
             // the dictionary foundWords is to search the words from the word stream (without repetitions)
             // and count how many each word is found in the Matrix
-            foreach (string word in wordStream.Distinct().Select(w => w.ToLower()))
+            foreach (string word in wordStream.Select(w => w.ToLower()).Distinct())
             {
                 _foundWords.Add(word, 0);
             }
@@ -53,7 +53,6 @@
             {
                 for (int col = 0; col < _columns; col++)
                 {
-
                     foreach (string word in _foundWords.Keys)
                     {
                         CheckHorizontally(row, col, word);
@@ -166,7 +165,7 @@
 
         /// <summary>
         /// Checks if the matrix is valid, it means, if the matrix is not null, if it has words,
-        /// if all its words has the same Length and if its size does not exceed 64x64
+        /// if all its words have the same Length and if its size does not exceed 64x64
         /// </summary>
         /// <param name="matrix">IEnumerable<string> with the matrix words</param>
         /// <returns>true if the matrix is valid, false otherwise</returns>
